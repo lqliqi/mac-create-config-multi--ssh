@@ -1,5 +1,14 @@
 # Mac 创建并配置多个 SSH 以支持 github和gitlab等代码仓库
 
+## 前言
+
+***
+简单来说，ssh是一种网络协议，用于计算机之间的加密登录。
+
+如果一个用户从本地计算机，使用ssh协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。
+
+需要指出的是，ssh只有一种协议，存在多种实现，既有商业实现，也有开源实现。
+* * *
 ## 第一步 生成 ssh-key
 ### 在终端输入:
 ```
@@ -50,13 +59,18 @@ User git
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/id_rsa_github
 
-Host gitlab.com
+Host gitlab
 HostName gitlab.com
 User git
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/id_rsa_mt
 
-# IdentityFile: 填写的是私钥名，没有pub后缀
+# 以 # 开头的是注释，会被忽略
+# 每项配置都是 参数名 参数值 或者 参数名=参数值，参数名不分大小写，参数值区分
+# Host: 机器别名，用于标识特定的配置
+# HostName: 主机名，一般为 ip 或者 主机域名
+# IdentityFile: 私钥证书文件位置，没有pub后缀；默认位置是~/.ssh/id_rsa，如果采用默认证书，可不填此项
+# Port: SSH访问主机的端口号，默认是22端口
 ```
 
 ## 第四步 将私钥添加到 ssh-agent
