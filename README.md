@@ -115,5 +115,5 @@ git@github.com:lqliqi/mac-create-config-multi--ssh.git
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/7.png?raw=true "克隆项目 git clone")
 
 ### Done 完成所有配置
-
+----------
 ## 如果对您有帮助，欢迎👏🏻 Star⭐️，Thanks♪(･ω･)ﾉ
