@@ -78,6 +78,12 @@ IdentityFile ~/.ssh/id_rsa_mt
 ```
 ssh-add ~/.ssh/id_rsa_mt
 ```
+#### 从ssh-agent 删除私钥
+
+```
+ssh-add -d ~/.ssh/id_rsa_mt
+```
+
 ### 输入git账户密码并回车
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/4.png?raw=true "私钥添加到ssh-agent")
 
