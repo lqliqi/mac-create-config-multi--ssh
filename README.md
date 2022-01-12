@@ -78,7 +78,7 @@ IdentityFile ~/.ssh/id_rsa_mt
 ```
 ssh-add ~/.ssh/id_rsa_mt
 ```
-#### 从ssh-agent 删除私钥
+#### 如何从ssh-agent 删除私钥呢，执行如下命令
 
 ```
 ssh-add -d ~/.ssh/id_rsa_mt
