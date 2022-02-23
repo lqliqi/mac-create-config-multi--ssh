@@ -133,7 +133,28 @@ git@github.com:lqliqi/mac-create-config-multi--ssh.git
 ## 你以为这样就完成了吗？不
 ### 当我们电脑重启的时候，我们第五步添加的私钥会丢失，所以我们需要开机的执行自动化程序添加私钥到 ssh-agent
 
-## 第九步 
+## 第九步 找到 "自动操作" 程序并打开
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto1.jpeg "找到 自动操作 程序并打开")
+
+## 第十步 选取文稿类型为 “应用程序” ,点击 选取
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto2.jpeg "找到 应用程序，点击选取")
+## 第十一步 选择 “实用工具”，双击 “运行shell脚本”
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto3.jpeg "双击 运行shell脚本")
+## 第十二步 在右侧 shell脚本输入框中输入以下脚本
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto4.jpeg "在右侧 shell脚本输入框中输入以下脚本")
+```
+ssh-add ~/.ssh/id_rsa_mt
+ssh-add ~/.ssh/id_rsa_github
+```
+## 第十三步 点击窗口上方菜单 文件 -> 存储 为应用程序
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto5.jpeg "存储")
+
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto6.jpeg "存储")
+
+
+## 第十四步 在 "用户与群组" 中 找到 登录项 ，找到生成的应用程序，添加进来，下次开机就会自动添加 私钥到 ssh-agent 中
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/auto7.jpeg "存储")
+
 
 ### Done 完成所有配置
 ----------
