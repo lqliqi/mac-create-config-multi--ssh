@@ -32,7 +32,7 @@ id_rsa_mt
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/1.png?raw=true "生成ssh-key")
 
 ## 第三步 为 ssh key 设置 git账号密码，
-#### 输入两次，保持一致，可直接回车，不设置，建议这里设置，如图：
+#### 输入两次密码，保持一致；建议这里不设置，直接回车两次，(方便后边开机添加自动程序执行:将私钥添加到 ssh-agent: )如图：
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/2.png?raw=true "为ssh-key设置密码")
 
 ### 进入到.ssh目录，查看生成的 .id_rsa_mt 和 .id_rsa_mt.pub 两个文件
