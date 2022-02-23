@@ -9,11 +9,21 @@
 
 需要指出的是，ssh只有一种协议，存在多种实现，既有商业实现，也有开源实现。
 * * *
-## 第一步 生成 ssh-key
+## 第一步
+### 如果没有该目录，创建该目录,在终端输入:
+```
+mkdir ~/.ssh
+```
+### 然后进入该目录， 在终端输入:
+```
+cd ~/.ssh
+```
+## 第二步 ，在 .ssh 目录生成 ssh-key
 ### 在终端输入:
 ```
 ssh-keygen -t rsa -C "youremail@email.com"
 ```
+
 ### 回车后，提示输入自定义的 ssh key 名字，我这里输入:
 ```
 id_rsa_mt
@@ -21,7 +31,7 @@ id_rsa_mt
 ### 输入完毕接着回车
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/1.png?raw=true "生成ssh-key")
 
-## 第二步 为 ssh key 设置 git账号密码，
+## 第三步 为 ssh key 设置 git账号密码，
 #### 输入两次，保持一致，可直接回车，不设置，建议这里设置，如图：
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/2.png?raw=true "为ssh-key设置密码")
 
@@ -41,7 +51,7 @@ id_rsa_mt
 > > id_rsa_mt 私钥
 > > id_rsa_mt.pub 公钥
 
-## 第三步 在 ~/.ssh 中 创建 config 文件并配置
+## 第四步 在 ~/.ssh 中 创建 config 文件并配置
 ```
 ➜  ~ cd ~/.ssh
 ➜  .ssh
@@ -73,7 +83,7 @@ IdentityFile ~/.ssh/id_rsa_mt
 # Port: SSH访问主机的端口号，默认是22端口
 ```
 
-## 第四步 将私钥添加到 ssh-agent
+## 第五步 将私钥添加到 ssh-agent
 ### 执行以下命令
 ```
 ssh-add ~/.ssh/id_rsa_mt
@@ -92,14 +102,14 @@ ssh-add -d ~/.ssh/id_rsa_mt
 Identity added: /Users/liqiqi/.ssh/id_rsa_mt (youremail@email.com)
 ```
 
-## 第五步 查看 ssh-agent 中的密钥是否添加成功,输入
+## 第六步 查看 ssh-agent 中的密钥是否添加成功,输入
 ```
 ssh-add -l
 ```
 ### 显示以下说明成功
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/6.png?raw=true "查看ssh-agent 秘钥")
 
-## 第六步 将各平台对应的 id_rsa_xxx.pub 添加到 GitHub/Gitlab
+## 第七步 将各平台对应的 id_rsa_xxx.pub 添加到 GitHub/Gitlab
 
 ### 6.1 拷贝id_rsa_mt.pub 到剪切板
 ```
@@ -113,7 +123,7 @@ pbcopy < ~/.ssh/id_rsa_mt.pub
 ### Gitlab: Setting->SSH keys
 ![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/8.png?raw=true "gitlab 添加 ssh key")
 ### 添加完成
-## 第七步 使用 SSH克隆项目,这里以我自己的github 为例
+## 第八步 使用 SSH克隆项目,这里以我自己的github 为例
 ```
 git@github.com:lqliqi/mac-create-config-multi--ssh.git
 ```
