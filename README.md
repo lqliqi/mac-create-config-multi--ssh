@@ -2,7 +2,6 @@
 
 ## 名词解释
 
-***
 简单来说，ssh是一种网络协议，用于计算机之间的加密登录。
 
 如果一个用户从本地计算机，使用ssh协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。
@@ -29,11 +28,11 @@ ssh-keygen -t rsa -C "youremail@email.com"
 id_rsa_mt
 ```
 ### 输入完毕接着回车
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/1.png?raw=true "生成ssh-key")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/1.png "生成ssh-key")
 
 ## 第三步 为 ssh key 设置 git账号密码，
 #### 输入两次密码，保持一致；建议这里不设置，直接回车两次，(方便后边开机添加自动程序执行:将私钥添加到 ssh-agent: )如图：
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/2.png?raw=true "为ssh-key设置密码")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/2.png "为ssh-key设置密码")
 
 ### 进入到.ssh目录，查看生成的 .id_rsa_mt 和 .id_rsa_mt.pub 两个文件
 ```
@@ -41,6 +40,9 @@ id_rsa_mt
 ➜  .ssh ls
  id_rsa_mt  id_rsa_mt.pub
 ```
+
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/3.png "成功生成.id_rsa_mt 和 .id_rsa_mt.pub 两个文件")
+
 ### 重复以上步骤，生成不同git 平台对应的 id_rsa_xxx 和 id_rsa_xxx.pub 文件
 
 > GitHub 生成的对应ssh-key
@@ -95,7 +97,7 @@ ssh-add -d ~/.ssh/id_rsa_mt
 ```
 
 ### 输入git账户密码并回车
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/4.png?raw=true "私钥添加到ssh-agent")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/4.png "私钥添加到ssh-agent")
 
 ### 显示这个说明此项操作成功
 ```
@@ -107,7 +109,7 @@ Identity added: /Users/liqiqi/.ssh/id_rsa_mt (youremail@email.com)
 ssh-add -l
 ```
 ### 显示以下说明成功
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/6.png?raw=true "查看ssh-agent 秘钥")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/6.png "查看ssh-agent 秘钥")
 
 ## 第七步 将各平台对应的 id_rsa_xxx.pub 添加到 GitHub/Gitlab
 
@@ -119,16 +121,16 @@ pbcopy < ~/.ssh/id_rsa_mt.pub
 ### 6.2 将该字符串拷贝粘贴到Git网站对应添加ssh-key的地方：
 
 ### Github: Setting->SSH and GPG keys
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/9.png?raw=true "github 添加 ssh key")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/9.png "github 添加 ssh key")
 ### Gitlab: Setting->SSH keys
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/8.png?raw=true "gitlab 添加 ssh key")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/8.png "gitlab 添加 ssh key")
 ### 添加完成
 ## 第八步 使用 SSH克隆项目,这里以我自己的github 为例
 ```
 git@github.com:lqliqi/mac-create-config-multi--ssh.git
 ```
 
-![lqliqi 图标](https://github.com/lqliqi/mac-create-config-multi--ssh/blob/main/imges/7.png?raw=true "克隆项目 git clone")
+![lqliqi 图标](https://raw.githubusercontent.com/lqliqi/mac-create-config-multi--ssh/main/imges/7.png "克隆项目 git clone")
 
 ## 你以为这样就完成了吗？不
 ### 当我们电脑重启的时候，我们第五步添加的私钥会丢失，所以我们需要开机的执行自动化程序添加私钥到 ssh-agent
